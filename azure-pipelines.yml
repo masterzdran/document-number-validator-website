@@ -1,0 +1,95 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+#name: DocumentNumberValidatorWebsite_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  - develop
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: "Release"
+  majorVersion: "1"
+  minorVersion: "0"
+  patchVersion: "0"
+  artifactVersion: "$(majorVersion).$(minorVersion).$(patchVersion).$(BUILD_BUILDNUMBER)"
+  solutionFile: "./DocumentNumberValidatorWebsite.sln"
+  artifactName: "DocumentNumberValidatorWebsite-drop"
+
+parameters:
+  - name: clean
+    displayName: Checkout clean
+    type: boolean
+    default: false
+    values:
+      - false
+      - true
+# /p:Version=$(artifactVersion)
+
+workspace:
+  clean: all
+steps:
+  - checkout: self
+    clean: ${{ parameters.clean }}
+
+  - task: DotNetCoreCLI@2
+    displayName: "Restoring nuget packages"
+    inputs:
+      command: "restore"
+      projects: "$(solutionFile)"
+      feedsToUse: "config"
+      nugetConfigPath: "./nuget.config"
+
+  - task: DotNetCoreCLI@2
+    displayName: "Building Solution"
+    inputs:
+      command: build
+      projects: "$(solutionFile)"
+      arguments: "--configuration $(buildConfiguration)"
+
+  - task: DotNetCoreCLI@2
+    displayName: "Running Unit Tests"
+    inputs:
+      command: test
+      projects: "$(solutionFile)"
+      arguments: '--configuration $(buildConfiguration) --logger "trx;LogFileName=testresults.trx" /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=TestResults/Coverage/ --collect:"XPlat Code Coverage" --results-directory "./artifacts"'
+
+  - script: "dotnet tool install --global dotnet-reportgenerator-globaltool --version 5.0.4"
+    displayName: "Install ReportGenerator tool"
+
+  - script: 'reportgenerator -reports:"artifacts/**/coverage.cobertura.xml" -targetdir:$(Build.SourcesDirectory)/coverlet/reports -tag:$(Build.BuildNumber) -reportTypes:htmlInline'
+    displayName: " Creating Reports"
+
+  - task: PublishTestResults@2
+    inputs:
+      testRunner: VSTest
+      testResultsFiles: "**/*.trx"
+      failTaskOnFailedTests: true
+
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: "cobertura"
+      summaryFileLocation: artifacts/**/coverage.cobertura.xml
+      reportDirectory: $(Build.SourcesDirectory)/TestResults/Coverage/Reports
+      failIfCoverageEmpty: false
+
+  - task: DotNetCoreCLI@2
+    displayName: "Publish artifacts"
+    inputs:
+      command: "publish"
+      publishWebProjects: false
+      arguments: "--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/Output"
+      zipAfterPublish: true
+      projects: "src/**/*.csproj"
+      modifyOutputPath: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact"
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "$(artifactName)"
+      publishLocation: "Container"

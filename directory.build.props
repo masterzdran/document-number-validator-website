@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+	<PropertyGroup>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Authors>Nuno Cancelo</Authors>
+        <PackageIcon>icon.64.png</PackageIcon>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryBranch>main</RepositoryBranch>
+        <RootNamespace>DocumentNumberValidatorWebsite</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="./icon.64.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+</Project>
