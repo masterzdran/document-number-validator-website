@@ -1,0 +1,41 @@
+﻿@page "/validator/nif-validator"
+
+
+
+
+
+
+<div class="my-component">
+    This component is defined in the <strong>NifValidatorModule</strong> library.
+
+</div>
+
+<div>
+    <fieldset>
+          <legend>Validate NIF</legend>
+          <div>
+            <label for="Nif">NIF</label><br/>
+            <input type="text" @bind="Nif" @onblur="Validate"/>
+          </div>
+     </fieldset>
+
+</div>
+<div>
+    @if (!String.IsNullOrEmpty(Nif))
+    {
+        if (IsValid)
+        {
+            <div class="my-component"> 
+            The NIF @Nif is valid.
+            </div>
+        }
+        else 
+        {
+            <div class="my-component"> 
+            The NIF @Nif is not valid.
+            </div>  
+        }
+
+    }
+
+</div>
