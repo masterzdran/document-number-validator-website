@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rg-name": {
+            "type": "string",
+            "defaultValue": "rg-dnv-dev-001"
+        },
+        "resource-group-region": {
+            "type": "string",
+            "defaultValue": "northeurope"
+        },
+        "resourceTags": {
+            "type": "object",
+            "defaultValue": {
+                "owner":"Nuno Cancelo",
+                "environment":"development",
+                "project":"document-number-validator",
+                "location":"north-europe"
+            }
+        }
+    },    
+    "resources": [
+        {
+            "name": "[parameters('rg-name')]",
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2022-02-01",
+            "location": "[parameters('resource-group-region')]",
+            "dependsOn": [],
+            "tags": "[parameters('resourceTags')]"            
+        }
+    ]
+}
