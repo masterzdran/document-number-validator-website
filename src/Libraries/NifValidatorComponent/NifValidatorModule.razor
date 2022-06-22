@@ -1,0 +1,36 @@
+﻿@page "/validator/nif-validator"
+
+@inject IStringLocalizer<Resources> Loc
+
+<div>
+    <h2>@Loc["TITLE"]</h2>
+    
+    <fieldset>
+          
+          <div>
+            <label for="Nif"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
+            <input type="text" @bind="Nif" @onblur="Validate"/>
+            <button>@Loc["BUTTON_LABEL"]</button>
+          </div>
+     </fieldset>
+
+</div>
+<div>
+    @if (!String.IsNullOrEmpty(Nif))
+    {
+        if (IsValid)
+        {
+            <div class="validation-valid-message"> 
+            @Loc["VALID_MESSAGE"].
+            </div>
+        }
+        else 
+        {
+            <div class="validation-invalid-message"> 
+            @Loc["INVALID_MESSAGE"]
+            </div>  
+        }
+
+    }
+
+</div>

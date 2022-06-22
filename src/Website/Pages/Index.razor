@@ -1,9 +1,15 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+@inject IStringLocalizer<Resources> Loc
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<PageTitle> @Loc["PAGE_TITLE"]</PageTitle>
+
+<h1> @Loc["PAGE_HEADER"]</h1>
+
+@Loc["PAGE_BODY"] 
+
+@@masterzdran
+
+
