@@ -1,4 +1,4 @@
-﻿@page "/validator/nif-validator"
+﻿@page "/validator/niss-validator"
 
 @inject IStringLocalizer<Resources> Loc
 
@@ -6,17 +6,16 @@
     <h2>@Loc["TITLE"]</h2>
     
     <fieldset>
-          
           <div>
-            <label for="Nif"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
-            <input type="text" @bind="Nif" @onblur="Validate"/>
+            <label for="Niss"><strong>@Loc["NISS_LABEL"]</strong></label> &nbsp; &nbsp;
+            <input type="text" @bind="Niss" @onblur="Validate"/>
             <button>@Loc["BUTTON_LABEL"]</button>
           </div>
      </fieldset>
 
 </div>
 <div>
-    @if (!String.IsNullOrEmpty(Nif))
+    @if (!String.IsNullOrEmpty(Niss))
     {
         if (IsValid)
         {

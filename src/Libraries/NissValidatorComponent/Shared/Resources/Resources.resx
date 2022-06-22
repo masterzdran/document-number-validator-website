@@ -121,15 +121,15 @@
     <value>Validate</value>
   </data>
   <data name="INVALID_MESSAGE" xml:space="preserve">
-    <value>The NIF @Nif is not valid.</value>
+    <value>The NISS is not valid.</value>
   </data>
-  <data name="NIF_LABEL" xml:space="preserve">
-    <value>NIF</value>
+  <data name="NISS_LABEL" xml:space="preserve">
+    <value>NISS</value>
   </data>
   <data name="TITLE" xml:space="preserve">
-    <value>Portugal Tax Payer Identification (NIF) Validation</value>
+    <value>Portugal Social Security Number (NISS) Validation</value>
   </data>
   <data name="VALID_MESSAGE" xml:space="preserve">
-    <value>The NIF @Nif is valid.</value>
+    <value>The NISS is valid.</value>
   </data>
 </root>

@@ -34,7 +34,7 @@ a, .btn-link {
     color: red;
 }
 .validation-invalid-message {
-    color: red;
+    color: red
 }
 .validation-valid-message {
     color: green;

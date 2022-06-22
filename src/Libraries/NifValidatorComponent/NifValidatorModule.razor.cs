@@ -6,20 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Portugal.Nif.Validator;
 
-namespace DocumentNumberValidatorWebsite
+namespace NifValidatorComponent
 {
     public partial class NifValidatorModule
     {
-       
-        private string nif = string.Empty;
         private readonly NifValidator validator;
-        private bool isValid;
 
         [Parameter]
-        public string Nif { get => nif; set => nif = value; }
+        public string Nif { get; set; } = string.Empty;
 
         [Parameter]
-        public bool IsValid { get => isValid; set => isValid = value; }
+        public bool IsValid { get; set; }
 
         public NifValidatorModule()
         {
@@ -29,8 +26,8 @@ namespace DocumentNumberValidatorWebsite
         public async Task<bool> Validate()
         {
             await Task.CompletedTask;
-            isValid = validator.Validate(Nif);
-            return  isValid;
+            IsValid = validator.Validate(Nif);
+            return  IsValid;
         }
     }
 }

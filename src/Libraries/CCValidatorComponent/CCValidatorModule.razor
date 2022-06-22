@@ -1,4 +1,4 @@
-﻿@page "/validator/nif-validator"
+﻿@page "/validator/cc-validator"
 
 @inject IStringLocalizer<Resources> Loc
 
@@ -8,20 +8,20 @@
     <fieldset>
           
           <div>
-            <label for="Nif"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
-            <input type="text" @bind="Nif" @onblur="Validate"/>
+            <label for="CC"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
+            <input type="text" @bind="CitizenCard" @onblur="Validate"/>
             <button>@Loc["BUTTON_LABEL"]</button>
           </div>
      </fieldset>
 
 </div>
 <div>
-    @if (!String.IsNullOrEmpty(Nif))
+    @if (!String.IsNullOrEmpty(CitizenCard))
     {
         if (IsValid)
         {
             <div class="validation-valid-message"> 
-            @Loc["VALID_MESSAGE"].
+            @Loc["VALID_MESSAGE"]
             </div>
         }
         else 

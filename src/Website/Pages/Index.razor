@@ -1,7 +1,15 @@
 ﻿@page "/"
-<PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to my document number validator page. @@masterzdran
+
+@inject IStringLocalizer<Resources> Loc
+
+<PageTitle> @Loc["PAGE_TITLE"]</PageTitle>
+
+<h1> @Loc["PAGE_HEADER"]</h1>
+
+@Loc["PAGE_BODY"] 
+
+@@masterzdran
+
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DocumentNumberValidatorWebsite {
+namespace NissValidatorComponent.Shared.Resources {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace DocumentNumberValidatorWebsite {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class NifValidatorStrings {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal NifValidatorStrings() {
+        internal Resources() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DocumentNumberValidatorWebsite.NifValidatorStrings", typeof(NifValidatorStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NissValidatorComponent.Shared.Resources.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace DocumentNumberValidatorWebsite {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,43 +63,43 @@ namespace DocumentNumberValidatorWebsite {
         /// <summary>
         ///   Looks up a localized string similar to Validate.
         /// </summary>
-        internal static string BUTTON_LABEL {
+        public static string BUTTON_LABEL {
             get {
                 return ResourceManager.GetString("BUTTON_LABEL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The NIF @Nif is not valid..
+        ///   Looks up a localized string similar to The NISS is not valid..
         /// </summary>
-        internal static string INVALID_MESSAGE {
+        public static string INVALID_MESSAGE {
             get {
                 return ResourceManager.GetString("INVALID_MESSAGE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NIF.
+        ///   Looks up a localized string similar to NISS.
         /// </summary>
-        internal static string NIF_LABEL {
+        public static string NISS_LABEL {
             get {
-                return ResourceManager.GetString("NIF_LABEL", resourceCulture);
+                return ResourceManager.GetString("NISS_LABEL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Portugal Tax Payer Identification (NIF) Validation.
+        ///   Looks up a localized string similar to Portugal Social Security Number (NISS) Validation.
         /// </summary>
-        internal static string TITLE {
+        public static string TITLE {
             get {
                 return ResourceManager.GetString("TITLE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The NIF @Nif is valid..
+        ///   Looks up a localized string similar to The NISS is valid..
         /// </summary>
-        internal static string VALID_MESSAGE {
+        public static string VALID_MESSAGE {
             get {
                 return ResourceManager.GetString("VALID_MESSAGE", resourceCulture);
             }
