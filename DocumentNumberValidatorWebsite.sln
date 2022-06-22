@@ -36,6 +36,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NissValidatorComponent", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCValidatorComponent", "src\Libraries\CCValidatorComponent\CCValidatorComponent.csproj", "{7F6FFDB6-A654-4BEC-8987-330A0F6F199F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{F971739E-C6BD-4BCF-91A1-38F9EDB88887}"
+	ProjectSection(SolutionItems) = preProject
+		infra\resource-group.arm.json = infra\resource-group.arm.json
+		infra\resources.arm.json = infra\resources.arm.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
