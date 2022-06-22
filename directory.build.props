@@ -2,6 +2,7 @@
 <Project>
 	<PropertyGroup>
 		<PackageVersion>1.0.0</PackageVersion>
+		<Version>1.0.0</Version>
 		<Authors>Nuno Cancelo</Authors>
         <PackageIcon>icon.64.png</PackageIcon>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
