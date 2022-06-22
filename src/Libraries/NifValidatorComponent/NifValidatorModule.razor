@@ -1,21 +1,15 @@
 ﻿@page "/validator/nif-validator"
-
-
-
-
-
-
-<div class="my-component">
-    This component is defined in the <strong>NifValidatorModule</strong> library.
-
-</div>
+@inject IStringLocalizer<NifValidatorModule> Loc
 
 <div>
+    <h2>@Loc["TITLE"]</h2>
+    
     <fieldset>
-          <legend>Validate NIF</legend>
+          
           <div>
-            <label for="Nif">NIF</label><br/>
+            <label for="Nif"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
             <input type="text" @bind="Nif" @onblur="Validate"/>
+            <button>@Loc["BUTTON_LABEL"]</button>
           </div>
      </fieldset>
 
@@ -25,14 +19,14 @@
     {
         if (IsValid)
         {
-            <div class="my-component"> 
-            The NIF @Nif is valid.
+            <div class="validation-valid-message"> 
+            @Loc["VALID_MESSAGE"].
             </div>
         }
         else 
         {
-            <div class="my-component"> 
-            The NIF @Nif is not valid.
+            <div class="validation-invalid-message"> 
+            @Loc["INVALID_MESSAGE"]
             </div>  
         }
 
