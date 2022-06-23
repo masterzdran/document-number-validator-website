@@ -40,6 +40,14 @@ a, .btn-link {
     color: green;
 }
 
+.validator-lable{
+    width: 50px;
+}
+.validator-input {
+    width: 300px;
+    min-width: 300px;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
