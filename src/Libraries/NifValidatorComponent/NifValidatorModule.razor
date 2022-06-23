@@ -8,8 +8,8 @@
     <fieldset>
           
           <div>
-            <label for="Nif"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
-            <input type="text" @bind="Nif" placeholder="123456789" @onblur="Validate"/>
+            <label class="validator-lable" for="Nif"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
+            <input class="validator-input" type="text" @bind="Nif" placeholder="123456789" @onblur="Validate"/>
             <button>@Loc["BUTTON_LABEL"]</button>
           </div>
           <div>
