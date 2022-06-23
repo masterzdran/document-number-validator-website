@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\CCValidatorComponent\CCValidatorComponent.csproj" />
+    <ProjectReference Include="..\..\Libraries\IBANValidatorComponent\IBANValidatorComponent.csproj" />
     <ProjectReference Include="..\..\Libraries\NifValidatorComponent\NifValidatorComponent.csproj" />
     <ProjectReference Include="..\..\Libraries\NissValidatorComponent\NissValidatorComponent.csproj" />
   </ItemGroup>
