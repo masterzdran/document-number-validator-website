@@ -117,19 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BUTTON_LABEL" xml:space="preserve">
-    <value>Validar</value>
+  <data name="PAGE_BODY" xml:space="preserve">
+    <value>Bem-vindos à minha página de validação de numeros de documentos.</value>
   </data>
-  <data name="INVALID_MESSAGE" xml:space="preserve">
-    <value>O Número de Segurança Social não é válido.</value>
+  <data name="PAGE_HEADER" xml:space="preserve">
+    <value>Document Number Validation Website</value>
   </data>
-  <data name="NISS_LABEL" xml:space="preserve">
-    <value>NISS</value>
-  </data>
-  <data name="TITLE" xml:space="preserve">
-    <value>Validação do Número de Segurança Social (NISS) de Portugal.</value>
-  </data>
-  <data name="VALID_MESSAGE" xml:space="preserve">
-    <value>O Número de Segurança Social é válido.</value>
+  <data name="PAGE_TITLE" xml:space="preserve">
+    <value>Document Number Validation Website</value>
   </data>
 </root>

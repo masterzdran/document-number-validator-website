@@ -26,15 +26,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{34B6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{50BF94CE-E88F-4D45-A4E0-0809D756B44E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "src\Website\Website.csproj", "{3FA5C285-11E3-420D-BD82-782B869E0650}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{019CBC0C-549D-4A55-9025-AF0774DCB736}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NifValidatorComponent", "src\Libraries\NifValidatorComponent\NifValidatorComponent.csproj", "{66BC3C26-3826-45C9-B5BF-0B86C545D0CD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NissValidatorComponent", "src\Libraries\NissValidatorComponent\NissValidatorComponent.csproj", "{06DDB239-10A5-436E-AAF1-D86A876EE451}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCValidatorComponent", "src\Libraries\CCValidatorComponent\CCValidatorComponent.csproj", "{7F6FFDB6-A654-4BEC-8987-330A0F6F199F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCValidatorComponent", "src\Libraries\CCValidatorComponent\CCValidatorComponent.csproj", "{7F6FFDB6-A654-4BEC-8987-330A0F6F199F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{F971739E-C6BD-4BCF-91A1-38F9EDB88887}"
 	ProjectSection(SolutionItems) = preProject
@@ -42,16 +40,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{F971739E
 		infra\resources.arm.json = infra\resources.arm.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site", "src\Application\Site\Site.csproj", "{C730B4F6-EE77-403E-8590-592EA7BE7A73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3FA5C285-11E3-420D-BD82-782B869E0650}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3FA5C285-11E3-420D-BD82-782B869E0650}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3FA5C285-11E3-420D-BD82-782B869E0650}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3FA5C285-11E3-420D-BD82-782B869E0650}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66BC3C26-3826-45C9-B5BF-0B86C545D0CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66BC3C26-3826-45C9-B5BF-0B86C545D0CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66BC3C26-3826-45C9-B5BF-0B86C545D0CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -64,6 +60,10 @@ Global
 		{7F6FFDB6-A654-4BEC-8987-330A0F6F199F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F6FFDB6-A654-4BEC-8987-330A0F6F199F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F6FFDB6-A654-4BEC-8987-330A0F6F199F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C730B4F6-EE77-403E-8590-592EA7BE7A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C730B4F6-EE77-403E-8590-592EA7BE7A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C730B4F6-EE77-403E-8590-592EA7BE7A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C730B4F6-EE77-403E-8590-592EA7BE7A73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,11 +71,11 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6} = {B6F16A79-B312-4908-81FE-FF66400BB447}
 		{50BF94CE-E88F-4D45-A4E0-0809D756B44E} = {B6F16A79-B312-4908-81FE-FF66400BB447}
-		{3FA5C285-11E3-420D-BD82-782B869E0650} = {50BF94CE-E88F-4D45-A4E0-0809D756B44E}
 		{019CBC0C-549D-4A55-9025-AF0774DCB736} = {0E24F690-BA5B-4482-B98C-E47CAA7050F0}
 		{66BC3C26-3826-45C9-B5BF-0B86C545D0CD} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
 		{06DDB239-10A5-436E-AAF1-D86A876EE451} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
 		{7F6FFDB6-A654-4BEC-8987-330A0F6F199F} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
+		{C730B4F6-EE77-403E-8590-592EA7BE7A73} = {50BF94CE-E88F-4D45-A4E0-0809D756B44E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A4D81D5-E59D-472B-9692-F7EF06ED37DA}
