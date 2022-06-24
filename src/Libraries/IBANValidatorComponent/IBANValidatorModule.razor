@@ -2,10 +2,19 @@
 
 @inject IStringLocalizer<Resources> Loc
 
-<div>
-    <h2>@Loc["TITLE"]</h2>
-    
-    <fieldset>         
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">        
+        @if(String.IsNullOrEmpty(Title))
+        {
+            @Loc["TITLE"]
+        }
+        else
+        {
+            @Title
+        }
+    </h5>
+        <fieldset>         
           <div>
             <label class="validator-lable" for="CC"><strong>@Loc["IBAN_LABEL"]</strong></label> &nbsp; &nbsp;
             <input class="validator-input" type="text" @bind="Iban" placeholder="PT50123443211234567890172" @onblur="Validate"/>
@@ -19,10 +28,7 @@
           </small>
           </div>
      </fieldset>
-
-</div>
-<div>
-    @if (!String.IsNullOrEmpty(Iban))
+         @if (!String.IsNullOrEmpty(Iban))
     {
         if (IsValid)
         {
@@ -39,4 +45,5 @@
 
     }
 
+  </div>
 </div>

@@ -2,9 +2,19 @@
 
 @inject IStringLocalizer<Resources> Loc
 
-<div>
-    <h2>@Loc["TITLE"]</h2>
-    
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">        
+        @if(String.IsNullOrEmpty(Title))
+        {
+            @Loc["TITLE"]
+        }
+        else
+        {
+            @Title
+        }
+    </h5>
+
     <fieldset>         
           <div>
             <label class="validator-lable" for="CC"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
@@ -19,10 +29,7 @@
           </small>
           </div>
      </fieldset>
-
-</div>
-<div>
-    @if (!String.IsNullOrEmpty(CitizenCard))
+     @if (!String.IsNullOrEmpty(CitizenCard))
     {
         if (IsValid)
         {
@@ -38,5 +45,5 @@
         }
 
     }
-
+  </div>
 </div>

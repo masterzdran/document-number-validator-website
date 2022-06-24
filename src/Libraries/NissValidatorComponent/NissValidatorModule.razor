@@ -2,10 +2,20 @@
 
 @inject IStringLocalizer<Resources> Loc
 
-<div>
-    <h2>@Loc["TITLE"]</h2>
-    
-    <fieldset>
+
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">        
+        @if(String.IsNullOrEmpty(Title))
+        {
+            @Loc["TITLE"]
+        }
+        else
+        {
+            @Title
+        }
+    </h5>
+        <fieldset>
           <div>
             <label class="validator-lable" for="Niss"><strong>@Loc["NISS_LABEL"]</strong></label> &nbsp; &nbsp;
             <input class="validator-input" type="text" @bind="Niss" placeholder="01234567890" @onblur="Validate"/>
@@ -19,10 +29,7 @@
           </small>
           </div>
      </fieldset>
-
-</div>
-<div>
-    @if (!String.IsNullOrEmpty(Niss))
+         @if (!String.IsNullOrEmpty(Niss))
     {
         if (IsValid)
         {
@@ -38,5 +45,5 @@
         }
 
     }
-
+  </div>
 </div>

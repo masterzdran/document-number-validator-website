@@ -18,9 +18,14 @@ namespace NifValidatorComponent
         [Parameter]
         public bool IsValid { get; set; }
 
+        [Parameter]
+        public string Title { get; set; }
+
         public NifValidatorModule()
         {
             this.validator = new NifValidator();
+            this.IsValid = false;
+            this.Title = string.Empty;
 
         }
         public async Task<bool> Validate()

@@ -18,9 +18,14 @@ namespace CCValidatorComponent
         [Parameter]
         public bool IsValid { get; set; }
 
+        [Parameter]
+        public string Title { get; set; }
+
         public CCValidatorModule()
         {
             this.validator = new CitizenCardValidator();
+            this.IsValid = false;
+            this.Title = string.Empty;
 
         }
         public async Task<bool> Validate()
