@@ -46,6 +46,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IBANValidatorComponent", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCGeneratorComponent", "src\Libraries\CCGeneratorComponent\CCGeneratorComponent.csproj", "{293A7629-9291-4362-9F94-EF63C483FEC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NissGeneratorComponent", "src\Libraries\NissGeneratorComponent\NissGeneratorComponent.csproj", "{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +78,10 @@ Global
 		{293A7629-9291-4362-9F94-EF63C483FEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293A7629-9291-4362-9F94-EF63C483FEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{293A7629-9291-4362-9F94-EF63C483FEC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{C730B4F6-EE77-403E-8590-592EA7BE7A73} = {50BF94CE-E88F-4D45-A4E0-0809D756B44E}
 		{BE7A59F3-56BA-4F20-B984-25D3749AEE43} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
 		{293A7629-9291-4362-9F94-EF63C483FEC9} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
+		{7BF69CCB-9CDE-4D63-97D2-85987BD93C46} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A4D81D5-E59D-472B-9692-F7EF06ED37DA}

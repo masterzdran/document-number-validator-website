@@ -1,4 +1,5 @@
-﻿@page "/validator/cc-generator"
+﻿@page "/validator/niss-generator"
+
 @inject IStringLocalizer<Resources> Loc
 
 
@@ -14,17 +15,16 @@
             @Title
         }
     </h5>
-
-    <fieldset>         
+        <fieldset>
           <div>
-            <label class="validator-lable" for="CC"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
-            <input class="validator-input" type="text" @bind="CitizenCard" placeholder="Click to Generate" readonly/>
+            <label class="validator-lable" for="DocumentNumber"><strong>@Loc["NISS_LABEL"]</strong></label> &nbsp; &nbsp;
+            <input class="validator-input" type="text" @bind="DocumentNumber" placeholder="01234567890"/>
             <button @onclick="GenerateRandomDocumentNumber">@Loc["BUTTON_LABEL"]</button>
           </div>
           <div>
               <small>More library usage examples <a 
                   target="_blank" 
-                  href="https://github.com/masterzdran/document-number-validator/blob/develop/tests/Portugal.CitizenCard.Validator.Tests/CitizenCardValidatorTests.cs"
+                  href="https://github.com/masterzdran/document-number-validator/blob/develop/tests/Portugal.Niss.Validator.Tests/NissValidatorTests.cs"
               >here</a>
           </small>
           </div>
