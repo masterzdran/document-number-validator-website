@@ -1,0 +1,33 @@
+﻿@page "/validator/cc-generator"
+
+@inject IStringLocalizer<Resources> Loc
+
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">        
+        @if(String.IsNullOrEmpty(Title))
+        {
+            @Loc["TITLE"]
+        }
+        else
+        {
+            @Title
+        }
+    </h5>
+
+    <fieldset>         
+          <div>
+            <label class="validator-lable" for="CC"><strong>@Loc["NIF_LABEL"]</strong></label> &nbsp; &nbsp;
+            <input class="validator-input" type="text" @bind="CitizenCard" placeholder="Click to Generate" readonly/>
+            <button @onclick="GenerateRandomDocumentNumber">@Loc["BUTTON_LABEL"]</button>
+          </div>
+          <div>
+              <small>More library usage examples <a 
+                  target="_blank" 
+                  href="https://github.com/masterzdran/document-number-validator/blob/develop/tests/Portugal.CitizenCard.Validator.Tests/CitizenCardValidatorTests.cs"
+              >here</a>
+          </small>
+          </div>
+     </fieldset>
+  </div>
+</div>

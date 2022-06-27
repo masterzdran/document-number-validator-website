@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\CCGeneratorComponent\CCGeneratorComponent.csproj" />
     <ProjectReference Include="..\..\Libraries\CCValidatorComponent\CCValidatorComponent.csproj" />
     <ProjectReference Include="..\..\Libraries\IBANValidatorComponent\IBANValidatorComponent.csproj" />
     <ProjectReference Include="..\..\Libraries\NifValidatorComponent\NifValidatorComponent.csproj" />
