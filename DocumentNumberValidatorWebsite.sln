@@ -44,9 +44,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Site", "src\Application\Sit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IBANValidatorComponent", "src\Libraries\IBANValidatorComponent\IBANValidatorComponent.csproj", "{BE7A59F3-56BA-4F20-B984-25D3749AEE43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CCGeneratorComponent", "src\Libraries\CCGeneratorComponent\CCGeneratorComponent.csproj", "{293A7629-9291-4362-9F94-EF63C483FEC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCGeneratorComponent", "src\Libraries\CCGeneratorComponent\CCGeneratorComponent.csproj", "{293A7629-9291-4362-9F94-EF63C483FEC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NissGeneratorComponent", "src\Libraries\NissGeneratorComponent\NissGeneratorComponent.csproj", "{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NissGeneratorComponent", "src\Libraries\NissGeneratorComponent\NissGeneratorComponent.csproj", "{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NifGeneratorComponent", "src\Libraries\NifGeneratorComponent\NifGeneratorComponent.csproj", "{5EB45F0B-22F4-47D3-A4B7-31D53A58DE00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -82,6 +84,10 @@ Global
 		{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB45F0B-22F4-47D3-A4B7-31D53A58DE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB45F0B-22F4-47D3-A4B7-31D53A58DE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB45F0B-22F4-47D3-A4B7-31D53A58DE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB45F0B-22F4-47D3-A4B7-31D53A58DE00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{BE7A59F3-56BA-4F20-B984-25D3749AEE43} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
 		{293A7629-9291-4362-9F94-EF63C483FEC9} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
 		{7BF69CCB-9CDE-4D63-97D2-85987BD93C46} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
+		{5EB45F0B-22F4-47D3-A4B7-31D53A58DE00} = {34B6DB30-5554-4C89-9BDD-DA4A0AAD8DC6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A4D81D5-E59D-472B-9692-F7EF06ED37DA}

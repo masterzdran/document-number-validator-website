@@ -18,7 +18,7 @@
         <fieldset>
           <div>
             <label class="validator-lable" for="DocumentNumber"><strong>@Loc["NISS_LABEL"]</strong></label> &nbsp; &nbsp;
-            <input class="validator-input" type="text" @bind="DocumentNumber" placeholder="01234567890"/>
+            <input class="validator-input" type="text" @bind="DocumentNumber" placeholder="Click to Generate" readonly/>
             <button @onclick="GenerateRandomDocumentNumber">@Loc["BUTTON_LABEL"]</button>
           </div>
           <div>
