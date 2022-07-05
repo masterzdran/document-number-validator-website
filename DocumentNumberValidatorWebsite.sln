@@ -12,8 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		azure-pipelines.yml = azure-pipelines.yml
 		CHANGELOG.md = CHANGELOG.md
-		directory.build.props = directory.build.props
 		favicon.ico = favicon.ico
+		Directory.Build.props = Directory.Build.props
 		global.json = global.json
 		icon.16.png = icon.16.png
 		icon.64.png = icon.64.png
@@ -48,7 +48,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CCGeneratorComponent", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NissGeneratorComponent", "src\Libraries\NissGeneratorComponent\NissGeneratorComponent.csproj", "{7BF69CCB-9CDE-4D63-97D2-85987BD93C46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NifGeneratorComponent", "src\Libraries\NifGeneratorComponent\NifGeneratorComponent.csproj", "{5EB45F0B-22F4-47D3-A4B7-31D53A58DE00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NifGeneratorComponent", "src\Libraries\NifGeneratorComponent\NifGeneratorComponent.csproj", "{5EB45F0B-22F4-47D3-A4B7-31D53A58DE00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
