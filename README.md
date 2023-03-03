@@ -2,6 +2,7 @@
 
 An Blazor webassembly application, exposing the several validation libraries for document numbers validations. For more information about the validators, visit [document-number-validator repository](https://github.com/masterzdran/document-number-validator/blob/develop/README.md).
 
+https://app-dnv-dev.azurewebsites.net/ 
 
 # Contributors
 * [@masterzdran](https://github.com/masterzdran)
