@@ -48,6 +48,13 @@ dotnet run --project src/Application/Site
 The footer version (`v1.0.0+build.247`) is composed from `Directory.Build.props` plus the CI
 build number (`BUILD_BUILDNUMBER` in Azure Pipelines / `GITHUB_RUN_NUMBER` in GitHub Actions).
 
+## Attribution
+
+The logo shown on the landing page comes from the
+[document-number-validator](https://github.com/masterzdran/document-number-validator)
+repository ([`images/cards.512.png`](https://github.com/masterzdran/document-number-validator/blob/develop/images/cards.512.png)).
+Original icons made by [Pixel perfect](https://icon54.com/) from [www.flaticon.com](https://www.flaticon.com/).
+
 ## License
 
 MIT — © Fundisk Entertainment.

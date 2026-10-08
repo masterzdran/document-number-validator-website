@@ -179,6 +179,7 @@ p { margin: 0 0 1em; }
 
 /* ---------- hero ---------- */
 .hero { padding: 4.5rem 0 4rem; overflow: hidden; }
+.hero-logo { display: block; width: 72px; height: 72px; margin-bottom: 1.1rem; }
 .hero-grid {
     display: grid;
     grid-template-columns: 1.05fr 1fr;
