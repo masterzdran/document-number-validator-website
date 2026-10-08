@@ -3,7 +3,7 @@
 Marketing, documentation and live-demo website for the
 [document-number-validator](https://github.com/masterzdran/document-number-validator) libraries.
 
-> **Website:** <https://app-dnv-dev.azurewebsites.net>
+> **Website:** <https://document-validator.fundisk.eu>
 
 ## Stack
 

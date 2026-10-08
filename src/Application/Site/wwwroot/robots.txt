@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /Error
 
-Sitemap: https://app-dnv-dev.azurewebsites.net/sitemap.xml
+Sitemap: https://document-validator.fundisk.eu/sitemap.xml
