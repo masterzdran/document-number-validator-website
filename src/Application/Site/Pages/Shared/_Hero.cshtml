@@ -1,0 +1,33 @@
+@using Site.Data
+<section class="hero" aria-labelledby="hero-heading">
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <p class="eyebrow">Open source · MIT · .NET 10</p>
+            <h1 id="hero-heading">Validate and Generate<br />Document Numbers in .NET</h1>
+            <p class="hero-lead">
+                A modern .NET library for validating, generating and verifying document numbers across
+                multiple countries using a clean and intuitive API.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#get-started">Get Started</a>
+                <a class="btn btn-secondary" href="@SiteInfo.RepositoryUrl" rel="noopener">GitHub</a>
+                <a class="btn btn-ghost" href="@SiteInfo.NuGetProfileUrl" rel="noopener">NuGet</a>
+            </div>
+            <p class="hero-stats muted">
+                <strong>@DocCatalog.All.Count</strong> document types ·
+                <strong>@DocCatalog.All.Count(d => d.CanGenerate)</strong> generators ·
+                <strong>4</strong> countries
+            </p>
+        </div>
+
+        <div class="hero-code">
+            <div class="code-window" aria-label="Code example">
+                <div class="code-window-bar">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span class="code-window-title">Program.cs</span>
+                </div>
+                <pre class="code"><code>@Html.Raw(CodeHighlight.ToHtml(CodeSamples.Hero, "csharp"))</code></pre>
+            </div>
+        </div>
+    </div>
+</section>

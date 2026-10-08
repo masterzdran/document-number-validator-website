@@ -1,0 +1,9 @@
+@page "/validators/{slug}"
+@model Site.Pages.ValidatorsModel
+@{
+    var doc = Site.Data.DocCatalog.Find(Model.Slug);
+}
+@if (doc is not null)
+{
+    <partial name="_Landing" model="new LandingVm(doc, false, Model.Input)" />
+}

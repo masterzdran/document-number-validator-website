@@ -1,0 +1,15 @@
+@page "/"
+@model Site.Pages.IndexModel
+@{
+    var demoVm = new DemoVm(Model.Input, null, "Try it yourself",
+        "The same validation and generation power your .NET app gets — right here in the browser. No sign-up, nothing stored.");
+}
+
+<partial name="_Hero" />
+<partial name="_Benefits" />
+<partial name="_DocTypes" />
+<partial name="_CodeExamples" />
+<partial name="_DemoForm" model="demoVm" />
+<partial name="_Features" />
+<partial name="_GetStarted" />
+<partial name="_Contributing" />

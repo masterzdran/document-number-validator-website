@@ -1,0 +1,33 @@
+@using Site.Data
+<section class="section" id="code-examples" aria-labelledby="code-heading">
+    <div class="container">
+        <h2 id="code-heading">Code examples</h2>
+        <p class="section-lead">Real, copyable snippets — exactly what you write in your application.</p>
+
+        <div class="tabs" data-tabs>
+            <div class="tablist" role="tablist" aria-label="Code examples">
+                <button type="button" role="tab" id="tab-validate" aria-controls="panel-validate" aria-selected="true">Validate</button>
+                <button type="button" role="tab" id="tab-generate" aria-controls="panel-generate" aria-selected="false" tabindex="-1">Generate</button>
+                <button type="button" role="tab" id="tab-batch" aria-controls="panel-batch" aria-selected="false" tabindex="-1">Batch Generation</button>
+                <button type="button" role="tab" id="tab-custom" aria-controls="panel-custom" aria-selected="false" tabindex="-1">Custom Validation</button>
+            </div>
+
+            <div class="tabpanel" role="tabpanel" id="panel-validate" aria-labelledby="tab-validate" tabindex="0">
+                <button type="button" class="copy-btn" data-copy-for="code-validate">Copy</button>
+                <pre class="code"><code id="code-validate">@Html.Raw(CodeHighlight.ToHtml(CodeSamples.Validate, "csharp"))</code></pre>
+            </div>
+            <div class="tabpanel" role="tabpanel" id="panel-generate" aria-labelledby="tab-generate" tabindex="0" hidden>
+                <button type="button" class="copy-btn" data-copy-for="code-generate">Copy</button>
+                <pre class="code"><code id="code-generate">@Html.Raw(CodeHighlight.ToHtml(CodeSamples.Generate, "csharp"))</code></pre>
+            </div>
+            <div class="tabpanel" role="tabpanel" id="panel-batch" aria-labelledby="tab-batch" tabindex="0" hidden>
+                <button type="button" class="copy-btn" data-copy-for="code-batch">Copy</button>
+                <pre class="code"><code id="code-batch">@Html.Raw(CodeHighlight.ToHtml(CodeSamples.Batch, "csharp"))</code></pre>
+            </div>
+            <div class="tabpanel" role="tabpanel" id="panel-custom" aria-labelledby="tab-custom" tabindex="0" hidden>
+                <button type="button" class="copy-btn" data-copy-for="code-custom">Copy</button>
+                <pre class="code"><code id="code-custom">@Html.Raw(CodeHighlight.ToHtml(CodeSamples.Custom, "csharp"))</code></pre>
+            </div>
+        </div>
+    </div>
+</section>

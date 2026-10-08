@@ -1,0 +1,48 @@
+@using Site.Data
+<section class="section" id="get-started" aria-labelledby="get-started-heading">
+    <div class="container">
+        <h2 id="get-started-heading">Get started</h2>
+        <p class="section-lead">Install the package you need and validate your first document number in minutes.</p>
+
+        <div class="getstarted-grid">
+            <div>
+                <h3>1. Install</h3>
+                <div class="code-window">
+                    <div class="code-window-bar">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                        <span class="code-window-title">bash</span>
+                        <button type="button" class="copy-btn" data-copy-for="code-install">Copy</button>
+                    </div>
+                    <pre class="code"><code id="code-install">@Html.Raw(CodeHighlight.ToHtml("dotnet add package DocumentNumber.Portugal.Vat.Validator\ndotnet add package DocumentNumber.Portugal.Niss.Validator\ndotnet add package DocumentNumber.InternationalBankAccountNumber.Validator", "bash"))</code></pre>
+                </div>
+                <p class="muted">Every document type ships as its own package —
+                    <a href="@SiteInfo.NuGetProfileUrl" rel="noopener">browse them all on NuGet</a>.
+                </p>
+            </div>
+
+            <div>
+                <h3>2. Validate</h3>
+                <div class="code-window">
+                    <div class="code-window-bar">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                        <span class="code-window-title">Program.cs</span>
+                        <button type="button" class="copy-btn" data-copy-for="code-quickstart">Copy</button>
+                    </div>
+                    <pre class="code"><code id="code-quickstart">@Html.Raw(CodeHighlight.ToHtml(CodeSamples.Validate, "csharp"))</code></pre>
+                </div>
+
+                <div class="link-cards">
+                    <a class="link-card" href="@(SiteInfo.RepositoryUrl)/blob/develop/README.md" rel="noopener">
+                        @Html.Icon("book") <span>Documentation</span>
+                    </a>
+                    <a class="link-card" href="@SiteInfo.RepositoryUrl" rel="noopener">
+                        @Html.Icon("branch") <span>GitHub</span>
+                    </a>
+                    <a class="link-card" href="@SiteInfo.NuGetProfileUrl" rel="noopener">
+                        @Html.Icon("layers") <span>NuGet</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

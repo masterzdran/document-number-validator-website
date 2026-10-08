@@ -1,0 +1,9 @@
+@page "/generators/{slug}"
+@model Site.Pages.GeneratorsModel
+@{
+    var doc = Site.Data.DocCatalog.Find(Model.Slug);
+}
+@if (doc is not null)
+{
+    <partial name="_Landing" model="new LandingVm(doc, true, Model.Input)" />
+}

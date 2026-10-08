@@ -3,6 +3,11 @@
 	<PropertyGroup>
 		<PackageVersion>1.0.0</PackageVersion>
 		<Version>1.0.0</Version>
+		<!-- Footer shows "v1.0.0+build.247" when CI provides a build number -->
+		<InformationalVersion Condition="'$(BUILD_BUILDNUMBER)' != ''">$(Version)+build.$(BUILD_BUILDNUMBER)</InformationalVersion>
+		<InformationalVersion Condition="'$(GITHUB_RUN_NUMBER)' != ''">$(Version)+build.$(GITHUB_RUN_NUMBER)</InformationalVersion>
+		<!-- No git-SHA suffix in the footer version -->
+		<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 		<Authors>Nuno Cancelo</Authors>
         <PackageIcon>icon.64.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

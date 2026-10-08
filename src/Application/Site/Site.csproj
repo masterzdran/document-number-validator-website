@@ -1,105 +1,44 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>$(MSBuildProjectName)</RootNamespace>
+    <RootNamespace>Site</RootNamespace>
+    <!-- ponytail: version display comes from Directory.Build.props + CI build number -->
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="Shared\Resources\Resources.pt-PT.resx" />
-  </ItemGroup>
+    <!-- Validators -->
+    <PackageReference Include="DocumentNumber.Portugal.Vat.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Portugal.Niss.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Portugal.CitizenCard.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Portugal.BankAccountNumber.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.InternationalBankAccountNumber.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Spain.Vat.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.France.Vat.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Brazil.Vat.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.AmericanExpress.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.Maestro.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.MaestroUK.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.Mastercard.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.VISA.Validator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.VISAElectron.Validator" Version="1.7.4" />
 
-  <ItemGroup>
-	<PackageReference Include="Microsoft.Extensions.Localization" Version="6.0.6" />
-  </ItemGroup>
-	  
-  <ItemGroup>
-    <None Include="Shared\Resources\Resources.pt-PT.resx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Libraries\CCGeneratorComponent\CCGeneratorComponent.csproj" />
-    <ProjectReference Include="..\..\Libraries\CCValidatorComponent\CCValidatorComponent.csproj" />
-    <ProjectReference Include="..\..\Libraries\IBANValidatorComponent\IBANValidatorComponent.csproj" />
-    <ProjectReference Include="..\..\Libraries\NifGeneratorComponent\NifGeneratorComponent.csproj" />
-    <ProjectReference Include="..\..\Libraries\NifValidatorComponent\NifValidatorComponent.csproj" />
-    <ProjectReference Include="..\..\Libraries\NissGeneratorComponent\NissGeneratorComponent.csproj" />
-    <ProjectReference Include="..\..\Libraries\NissValidatorComponent\NissValidatorComponent.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Shared\Resources\Resources.Designer.cs">
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Pages\Index.razor">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </Content>
-    <Content Update="wwwroot\css\app.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap\bootstrap.min.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\bootstrap\bootstrap.min.css.map">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\open-iconic\FONT-LICENSE">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\open-iconic\font\fonts\open-iconic.eot">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\open-iconic\font\fonts\open-iconic.otf">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\open-iconic\font\fonts\open-iconic.svg">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\open-iconic\font\fonts\open-iconic.ttf">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\open-iconic\font\fonts\open-iconic.woff">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\open-iconic\ICON-LICENSE">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\css\open-iconic\README.md">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\favicon.ico">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Shared\Resources\Resources.resx">
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
+    <!-- Generators (testing purposes) -->
+    <PackageReference Include="DocumentNumber.Portugal.Vat.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Portugal.Niss.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Portugal.CitizenCard.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Portugal.BankAccountNumber.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Spain.Vat.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.France.Vat.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.Brazil.Vat.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.AmericanExpress.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.Maestro.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.MaestroUK.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.Mastercard.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.VISA.Generator" Version="1.7.4" />
+    <PackageReference Include="DocumentNumber.PaymentCardNumber.VISAElectron.Generator" Version="1.7.4" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,109 @@
+@using Site.Data
+@model Site.Pages.LandingVm
+@{
+    var d = Model.Doc;
+    var kind = Model.IsGenerator ? "Generator" : "Validator";
+    var validateCode = CodeSamples.ValidateFor(d);
+}
+
+<section class="landing-hero" aria-labelledby="landing-heading">
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="/#supported">@(Model.IsGenerator ? "Generators" : "Validators")</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">@d.Name</span>
+        </nav>
+
+        <h1 id="landing-heading">@d.Name @kind</h1>
+        <p class="hero-lead">@d.Summary</p>
+
+        <p class="doc-badges">
+            <span class="badge badge-country">@d.Country</span>
+            <span class="badge badge-ok">Validation</span>
+            @if (d.CanGenerate)
+            {
+                <span class="badge badge-ok">Generation</span>
+            }
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="#demo">Try the demo</a>
+            <a class="btn btn-secondary" href="https://www.nuget.org/packages/@(Model.IsGenerator ? d.GeneratorPackage : d.ValidatorPackage)" rel="noopener">
+                NuGet: @(Model.IsGenerator ? d.GeneratorPackage : d.ValidatorPackage)
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="how-heading">
+    <div class="container landing-grid">
+        <div>
+            <h2 id="how-heading">How @(Model.IsGenerator ? "generation" : "validation") works</h2>
+            <p>@(Model.IsGenerator
+                    ? $"The {d.Name} generator builds a structurally valid sample using the same rules the validator enforces — check digits included. Use it for test data and fixtures; never for production records."
+                    : d.HowItWorks)</p>
+
+            <h3>Install the package</h3>
+            <div class="code-window">
+                <div class="code-window-bar">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span class="code-window-title">bash</span>
+                    <button type="button" class="copy-btn" data-copy-for="code-install-@d.Slug">Copy</button>
+                </div>
+                <pre class="code"><code id="code-install-@d.Slug">@Html.Raw(CodeHighlight.ToHtml($"dotnet add package {(Model.IsGenerator ? d.GeneratorPackage : d.ValidatorPackage)}", "bash"))</code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3>@kind in C#</h3>
+            <div class="code-window">
+                <div class="code-window-bar">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span class="code-window-title">Program.cs</span>
+                    <button type="button" class="copy-btn" data-copy-for="code-@d.Slug">Copy</button>
+                </div>
+                <pre class="code"><code id="code-@d.Slug">@Html.Raw(CodeHighlight.ToHtml(Model.IsGenerator ? CodeSamples.GenerateFor(d) : validateCode, "csharp"))</code></pre>
+            </div>
+
+            <h3>Live example</h3>
+            <p class="example-value"><code>@d.Example</code> <span class="muted">— a real @d.Name value accepted by the validator</span></p>
+        </div>
+    </div>
+</section>
+
+@{
+    var demoHeading = $"Try {d.Name} {(Model.IsGenerator ? "generation" : "validation")}";
+    var demoVm = new DemoVm(Model.Input, d, demoHeading,
+        "Runs the exact same library code your application uses. Nothing you enter is stored.");
+}
+<partial name="_DemoForm" model="demoVm" />
+
+<section class="section alt" aria-labelledby="faq-heading">
+    <div class="container">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq">
+            @foreach (var (q, a) in JsonLd.Faqs(d, Model.IsGenerator))
+            {
+                <details>
+                    <summary>@q</summary>
+                    <p>@a</p>
+                </details>
+            }
+        </div>
+
+        <h3>Related document types</h3>
+        <p class="related-links">
+            @foreach (var other in DocCatalog.InGroup(d.Group).Where(o => o.Slug != d.Slug))
+            {
+                <a class="badge badge-country" href="/validators/@other.Slug">@other.Name validator</a>
+            }
+            @if (!Model.IsGenerator && d.CanGenerate)
+            {
+                <a class="badge badge-ok" href="/generators/@d.Slug">@d.Name generator</a>
+            }
+            <a class="badge badge-muted" href="/#supported">All document types</a>
+        </p>
+    </div>
+</section>

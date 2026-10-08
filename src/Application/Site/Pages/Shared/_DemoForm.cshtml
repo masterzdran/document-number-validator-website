@@ -1,0 +1,52 @@
+@using Microsoft.AspNetCore.Mvc.Rendering
+@model Site.Pages.DemoVm
+@{
+    var docItems = Site.Data.DocCatalog.All
+        .Select(d => new SelectListItem($"{d.Name} ({d.Country})", d.Slug))
+        .ToList();
+}
+<section class="section demo-section" id="demo" aria-labelledby="demo-heading">
+    <div class="container">
+        <h2 id="demo-heading">@Model.Heading</h2>
+        <p class="section-lead">@Model.Blurb</p>
+
+        <form method="post" asp-page-handler="Demo" class="demo-form">
+            @if (Model.Fixed is null)
+            {
+                <div class="field">
+                    <label asp-for="Input.DocSlug">Document type</label>
+                    <select asp-for="Input.DocSlug" asp-items="docItems">
+                    </select>
+                </div>
+            }
+            else
+            {
+                <input type="hidden" name="Input.DocSlug" value="@Model.Fixed.Slug" />
+                <div class="field">
+                    <span class="field-label">Document type</span>
+                    <span class="doc-chip">@Model.Fixed.Name <span class="muted">@Model.Fixed.Country</span></span>
+                </div>
+            }
+
+            <div class="field field-grow">
+                <label for="demo-value">Document number</label>
+                <input id="demo-value" name="Input.Value" type="text"
+                       value="@(TempData["demo.value"] as string ?? Model.Input.Value)"
+                       placeholder="@(Model.Fixed?.Example ?? DocCatalog.All[0].Example)"
+                       autocomplete="off" spellcheck="false"
+                       aria-describedby="demo-hint" />
+                <small id="demo-hint" class="muted">Example: @(Model.Fixed?.Example ?? DocCatalog.All[0].Example) — demo input is never stored.</small>
+            </div>
+
+            <div class="field demo-actions">
+                <button type="submit" name="action" value="validate" class="btn btn-primary">Validate</button>
+                <button type="submit" name="action" value="generate" class="btn btn-secondary">Generate sample</button>
+            </div>
+        </form>
+
+        @if (TempData["demo.level"] is string level)
+        {
+            <p class="alert alert-@level" role="status">@TempData["demo.message"]</p>
+        }
+    </div>
+</section>

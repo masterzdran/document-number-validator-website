@@ -1,0 +1,21 @@
+@using Site.Data
+@{
+    Layout = "_Layout";
+    // Pages may override any of these in OnGet; these are fallbacks only.
+    if (ViewData["Title"] is null)
+    {
+        ViewData["Title"] = "Document Number Validator for .NET | Validate and Generate Document Numbers";
+    }
+    if (ViewData["Description"] is null)
+    {
+        ViewData["Description"] = "Validate and generate document numbers using a high-performance .NET library. Support for multiple countries, extensible validation rules and production-ready APIs.";
+    }
+    if (ViewData["Canonical"] is null)
+    {
+        ViewData["Canonical"] = SiteInfo.BaseUrl + Context.Request.Path;
+    }
+    if (ViewData["JsonLd"] is null)
+    {
+        ViewData["JsonLd"] = JsonLd.Website();
+    }
+}

@@ -1,42 +1,10 @@
-﻿@page
+@page "/Error"
 @model Site.Pages.ErrorModel
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Error</title>
-    <link href="~/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
-</head>
-
-<body>
-    <div class="main">
-        <div class="content px-4">
-            <h1 class="text-danger">Error.</h1>
-            <h2 class="text-danger">An error occurred while processing your request.</h2>
-
-            @if (Model.ShowRequestId)
-            {
-                <p>
-                    <strong>Request ID:</strong> <code>@Model.RequestId</code>
-                </p>
-            }
-
-            <h3>Development Mode</h3>
-            <p>
-                Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
-            </p>
-            <p>
-                <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
-                It can result in displaying sensitive information from exceptions to end users.
-                For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
-                and restarting the app.
-            </p>
-        </div>
-    </div>
-</body>
-
-</html>
+<div class="container narrow center">
+    <h1>Something went wrong</h1>
+    <p class="section-lead">An unexpected error occurred while processing the request. Please try again.</p>
+    <p class="hero-actions">
+        <a class="btn btn-primary" href="/">Back to home</a>
+        <a class="btn btn-secondary" href="@SiteInfo.WebsiteRepositoryUrl/issues" rel="noopener">Report an issue</a>
+    </p>
+</div>

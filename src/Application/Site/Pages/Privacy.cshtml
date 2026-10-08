@@ -1,0 +1,39 @@
+@page "/privacy"
+@model Site.Pages.PrivacyModel
+<div class="container narrow">
+    <h1>Privacy Policy</h1>
+    <p class="muted">Last updated: October 2026</p>
+
+    <h2>What this site is</h2>
+    <p>
+        Document Number Validator is a documentation and demo site for an open-source .NET library.
+        It is built to work without tracking.
+    </p>
+
+    <h2>Cookies and analytics</h2>
+    <p>
+        This site does not use advertising or analytics cookies and does not include third-party trackers.
+        The only browser storage used is your colour-theme preference (<code>localStorage</code>), which never
+        leaves your device.
+    </p>
+
+    <h2>Demo inputs</h2>
+    <p>
+        Values you enter in the on-page demo are processed in memory on the server for the current request
+        so that validation can run. They are not persisted, logged to the application data store or shared
+        with third parties. Do not enter real personal or financial data into the demo.
+    </p>
+
+    <h2>Server logs</h2>
+    <p>
+        As with any hosted website, the hosting provider may keep standard infrastructure logs (such as IP
+        address, requested URL and timestamp) for security and operations purposes.
+    </p>
+
+    <h2>Open source</h2>
+    <p>
+        The website source and the validator libraries are public on
+        <a href="@SiteInfo.WebsiteRepositoryUrl" rel="noopener">GitHub</a>. If you have questions or want to
+        request a change, open an issue.
+    </p>
+</div>

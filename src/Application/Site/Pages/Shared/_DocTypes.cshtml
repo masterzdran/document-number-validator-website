@@ -1,0 +1,48 @@
+@using Site.Data
+<section class="section alt" id="supported" aria-labelledby="supported-heading">
+    <div class="container">
+        <h2 id="supported-heading">Supported document types</h2>
+        <p class="section-lead">
+            Generated from the library catalogue — every card links to a live validator and, where available,
+            a generator with runnable examples.
+        </p>
+
+        @foreach (var group in DocCatalog.Groups)
+        {
+            <h3 class="group-title">@group</h3>
+            <div class="card-grid doc-grid">
+                @foreach (var doc in DocCatalog.InGroup(group))
+                {
+                    <article class="card doc-card">
+                        <header class="doc-card-head">
+                            <span class="card-icon">@Html.Icon(doc.Group == "Payment cards" ? "credit-card" : doc.Group == "Portugal" || doc.Group == "Spain" || doc.Group == "France" || doc.Group == "Brazil" ? "pin" : "globe")</span>
+                            <div>
+                                <h3><a href="/validators/@doc.Slug">@doc.Name</a></h3>
+                                <p class="doc-country">@doc.Country</p>
+                            </div>
+                        </header>
+                        <p class="doc-summary">@doc.Summary</p>
+                        <p class="doc-badges">
+                            <span class="badge badge-ok">Validation</span>
+                            @if (doc.CanGenerate)
+                            {
+                                <span class="badge badge-ok">Generation</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-muted">Validation only</span>
+                            }
+                        </p>
+                        <footer class="doc-card-links">
+                            <a href="/validators/@doc.Slug">Validator →</a>
+                            @if (doc.CanGenerate)
+                            {
+                                <a href="/generators/@doc.Slug">Generator →</a>
+                            }
+                        </footer>
+                    </article>
+                }
+            </div>
+        }
+    </div>
+</section>
