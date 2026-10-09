@@ -10,8 +10,9 @@ Marketing, documentation and live-demo website for the
 - **.NET 10** — ASP.NET Core **Razor Pages** (server-rendered HTML for SEO, no SPA framework)
 - No Bootstrap/icon fonts — a small custom CSS design system (`wwwroot/css/site.css`)
 - Dark-mode-first UI with optional light theme (Fluent-inspired, Azure blue palette)
-- The interactive demo runs the **real NuGet validator/generator packages** server-side
-  (form POST + Post/Redirect/Get — works with JavaScript disabled)
+- The interactive demo runs the **real NuGet validator/generator packages** server-side.
+  A small `fetch()` enhancement posts to a JSON handler for an in-place result; the plain
+  form POST + Post/Redirect/Get stays as the no-JavaScript fallback
 
 ## Structure
 
@@ -22,12 +23,31 @@ src/Application/Site/
   Data/CodeSamples.cs       Real, compile-checked code snippets
   Data/CodeHighlight.cs     Dependency-free server-side syntax highlighting
   Data/JsonLd.cs            Schema.org structured data (SoftwareApplication + FAQPage)
+  Pages/Demo.cs            DemoRunner (shared validate/generate logic) + the
+                            OnPostDemo / OnPostDemoJson handlers (no-JS and fetch paths)
   Pages/Index.cshtml        Homepage (hero, benefits, doc types, code tabs, demo, features)
   Pages/Validators.cshtml   /validators/{slug}  — SEO landing page for every document type
   Pages/Generators.cshtml   /generators/{slug}  — same for generators (testing purposes)
   Pages/Sitemap.cshtml      /sitemap.xml generated from the catalogue
 tests/…Library.Tests/       Catalogue integrity + generator→validator roundtrip tests
 ```
+
+## Interactive demo
+
+The demo runs the **real NuGet packages** server-side — input is never stored and never
+leaves the request. Two front doors share one implementation (`DemoRunner` in
+`Pages/Demo.cs`), so the live site and the no-JavaScript path can never drift apart:
+
+| Path | Request | Response |
+| --- | --- | --- |
+| No JavaScript (fallback) | `POST {page}?handler=Demo` — form post + Post/Redirect/Get | full page re-render |
+| JavaScript (default) | `POST {page}?handler=DemoJson` — `fetch` with the same form fields | `{ "level": "success\|error\|warn", "message": "…", "value": "…" }` |
+
+The AJAX call is progressive enhancement: `wwwroot/js/site.js` intercepts the submit,
+posts the same `FormData` (antiforgery token included) to the JSON handler and replaces
+`#demo-result` (`role="status"`, `aria-live="polite"`) in place — no reload, results
+announced to screen readers. Any failure falls back to the normal form submit, so the
+demo keeps working with JavaScript disabled, offline, or on an old browser.
 
 ## Supported document types (v1.7.4 packages)
 

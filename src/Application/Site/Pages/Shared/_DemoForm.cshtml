@@ -10,7 +10,7 @@
         <h2 id="demo-heading">@Model.Heading</h2>
         <p class="section-lead">@Model.Blurb</p>
 
-        <form method="post" asp-page-handler="Demo" class="demo-form">
+        <form method="post" asp-page-handler="Demo" class="demo-form" data-demo-ajax>
             @if (Model.Fixed is null)
             {
                 <div class="field">
@@ -44,9 +44,11 @@
             </div>
         </form>
 
-        @if (TempData["demo.level"] is string level)
-        {
-            <p class="alert alert-@level" role="status">@TempData["demo.message"]</p>
+        @{
+            var demoLevel = TempData["demo.level"] as string;
+            var demoMessage = TempData["demo.message"] as string;
         }
+        <p id="demo-result" class="alert@(demoLevel is null ? "" : $" alert-{demoLevel}")"
+           role="status" aria-live="polite" hidden="@(demoLevel is null)">@demoMessage</p>
     </div>
 </section>

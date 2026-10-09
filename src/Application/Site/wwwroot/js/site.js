@@ -51,3 +51,47 @@ document.querySelectorAll('[data-copy-for]').forEach(function (btn) {
         });
     });
 });
+
+// Interactive demo — progressive enhancement.
+// Posts to the JSON handler (OnPostDemoJson) so the page does not reload; the
+// plain form submit (post/redirect/get) stays as the no-JavaScript fallback and
+// is also used whenever fetch fails.
+(function () {
+    var form = document.querySelector('form[data-demo-ajax]');
+    if (!form || !window.fetch) return;
+
+    var result = document.getElementById('demo-result');
+    var valueInput = document.getElementById('demo-value');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var data = new FormData(form);
+        data.set('action', (event.submitter && event.submitter.value) || 'validate');
+
+        // NOTE: read the action attribute, not the form.action property — a form
+        // control named "action" (our submit buttons) shadows it via named access.
+        var url = (form.getAttribute('action') || location.pathname)
+            .replace('handler=Demo', 'handler=DemoJson');
+
+        fetch(url, {
+            method: 'POST',
+            body: data,
+            headers: { 'X-Requested-With': 'fetch', Accept: 'application/json' },
+            credentials: 'same-origin'
+        })
+            .then(function (response) {
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                return response.json();
+            })
+            .then(function (body) {
+                if (valueInput && body.value != null) valueInput.value = body.value;
+                if (result) {
+                    result.textContent = body.message;
+                    result.className = 'alert alert-' + body.level;
+                    result.hidden = false;
+                }
+            })
+            .catch(function () { form.submit(); });
+    });
+})();
