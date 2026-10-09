@@ -52,6 +52,62 @@ document.querySelectorAll('[data-copy-for]').forEach(function (btn) {
     });
 });
 
+// Google Analytics consent gate. The tag is only loaded after the visitor
+// accepts; the choice is remembered in localStorage. See /privacy.
+(function () {
+    var KEY = 'analytics-consent';
+    var ID = 'G-972WK5CM96';
+    var banner = document.getElementById('consent-banner');
+    var settings = document.querySelectorAll('[data-consent-settings]');
+    var loaded = false;
+
+    function read() {
+        try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    }
+
+    function load() {
+        if (loaded) return;
+        loaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', ID);
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
+        document.head.appendChild(s);
+    }
+
+    function decide(choice) {
+        try { localStorage.setItem(KEY, choice); } catch (e) { /* private mode */ }
+        if (banner) banner.hidden = true;
+        if (choice === 'granted') load();
+    }
+
+    // Reveal "Cookie settings" once a decision can be changed.
+    if (read()) settings.forEach(function (el) { el.hidden = false; });
+
+    if (read() === 'granted') {
+        load();
+    } else if (!read() && banner) {
+        banner.hidden = false;
+    }
+
+    if (banner) {
+        banner.addEventListener('click', function (event) {
+            var target = event.target.closest('[data-consent-accept], [data-consent-decline]');
+            if (!target) return;
+            decide(target.hasAttribute('data-consent-accept') ? 'granted' : 'denied');
+        });
+    }
+
+    settings.forEach(function (el) {
+        el.addEventListener('click', function () {
+            if (banner) banner.hidden = false;
+        });
+    });
+})();
+
 // Interactive demo — progressive enhancement.
 // Posts to the JSON handler (OnPostDemoJson) so the page does not reload; the
 // plain form submit (post/redirect/get) stays as the no-JavaScript fallback and

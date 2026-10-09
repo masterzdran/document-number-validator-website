@@ -478,6 +478,34 @@ pre.code code { background: none; border: none; padding: 0; font-size: inherit; 
     border-radius: 999px;
     padding: 0.12rem 0.6rem;
 }
+.link-button {
+    border: 0;
+    background: none;
+    padding: 0;
+    font: inherit;
+    color: var(--muted);
+    font-size: 0.93rem;
+    cursor: pointer;
+}
+.link-button:hover { color: var(--text); }
+
+/* ---------- consent banner ---------- */
+.consent-banner {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+.consent-text { margin: 0; font-size: 0.92rem; color: var(--muted); }
+.consent-actions { display: flex; gap: 0.7rem; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
