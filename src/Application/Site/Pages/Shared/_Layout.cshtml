@@ -27,6 +27,15 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <script>document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark';</script>
     <script type="application/ld+json">@Html.Raw(ViewData["JsonLd"])</script>
+
+    @* Google tag (gtag.js) *@
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-972WK5CM96"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-972WK5CM96');
+    </script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
